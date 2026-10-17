@@ -1,0 +1,502 @@
+{
+  "tema": "minería de cobre",
+  "fecha": "2026-10-14",
+  "conclusion": "Mejor opción encontrada para 'Interpretación pendiente de LLM (modo determinista). Tema recibido: 'minería de cobre'. Se asume tesis sectorial genérica para poder ejecutar el pipeline.': WisdomTree Copper ETC (R/R 44.6, confianza 7.0). Modo determinista: análisis cualitativo pendiente. Producto de categoría ETC. [MODO DETERMINISTA: juicio de proceso, no de mercado.]",
+  "top5": [
+    {
+      "producto": {
+        "nombre": "WisdomTree Copper ETC",
+        "ticker": "COPL.L",
+        "isin": null,
+        "emisor": "WisdomTree",
+        "categoria": "ETC",
+        "naturaleza": "ETC_FUTUROS",
+        "replica": "futuros",
+        "ucits": false,
+        "domicilio": "Jersey",
+        "divisa_cotizacion": "EUR",
+        "divisa_activos": "USD",
+        "acumulacion": true,
+        "ter": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "aum": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "spread": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "antiguedad_anios": null,
+        "n_posiciones": null,
+        "concentracion_top10": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "coste_total_estimado": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "notas": "Exposición directa a cobre vía futuros: contango/backwardation y roll yield importan (regla 50)."
+      },
+      "explicacion_sencilla": "Modo determinista: análisis cualitativo pendiente. Producto de categoría ETC.",
+      "calidad_subyacente": "no disponible sin LLM",
+      "tesis": {
+        "positiva": "",
+        "negativa": "",
+        "catalizadores": [],
+        "invalidadores": [],
+        "escenarios": []
+      },
+      "scores": {
+        "potencial": 39.2,
+        "rentabilidad_riesgo": 44.6,
+        "personalizado": null,
+        "vehiculo": 50.0,
+        "confianza": 7.0,
+        "etiqueta_potencial": "Desfavorable",
+        "etiqueta_rr": "Poco atractiva"
+      },
+      "niveles": {
+        "precio_actual": null,
+        "fair_value": null,
+        "precio_atractivo": null,
+        "precio_muy_atractivo": null,
+        "nivel_invalidacion": null,
+        "etiqueta_fair_value": "ESTIMADO"
+      },
+      "buyability": "MANTENER / ESPERAR",
+      "riesgos": [
+        "modo determinista: riesgos específicos sin analizar"
+      ],
+      "coste_total_nota": "TER sin verificar (regla 23): no disponible",
+      "accesibilidad": "pendiente de conocer el broker (regla 71)",
+      "fiscalidad_nota": "",
+      "red_team": [
+        "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+      ],
+      "vigilar": []
+    },
+    {
+      "producto": {
+        "nombre": "Xtrackers MSCI World Value UCITS ETF",
+        "ticker": "XDEV.DE",
+        "isin": null,
+        "emisor": "Xtrackers/DWS",
+        "categoria": "FACTOR_VALUE",
+        "naturaleza": "ETF_ACCIONES",
+        "replica": "fisica",
+        "ucits": true,
+        "domicilio": "Irlanda",
+        "divisa_cotizacion": "EUR",
+        "divisa_activos": "USD",
+        "acumulacion": true,
+        "ter": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "aum": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "spread": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "antiguedad_anios": null,
+        "n_posiciones": null,
+        "concentracion_top10": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "coste_total_estimado": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "notas": "Value global: factor alternativo con solapamiento parcial en mineras."
+      },
+      "explicacion_sencilla": "Modo determinista: análisis cualitativo pendiente. Producto de categoría FACTOR_VALUE.",
+      "calidad_subyacente": "no disponible sin LLM",
+      "tesis": {
+        "positiva": "",
+        "negativa": "",
+        "catalizadores": [],
+        "invalidadores": [],
+        "escenarios": []
+      },
+      "scores": {
+        "potencial": 40.0,
+        "rentabilidad_riesgo": 43.0,
+        "personalizado": null,
+        "vehiculo": 50.0,
+        "confianza": 7.0,
+        "etiqueta_potencial": "Poco atractiva",
+        "etiqueta_rr": "Poco atractiva"
+      },
+      "niveles": {
+        "precio_actual": null,
+        "fair_value": null,
+        "precio_atractivo": null,
+        "precio_muy_atractivo": null,
+        "nivel_invalidacion": null,
+        "etiqueta_fair_value": "ESTIMADO"
+      },
+      "buyability": "MANTENER / ESPERAR",
+      "riesgos": [
+        "modo determinista: riesgos específicos sin analizar"
+      ],
+      "coste_total_nota": "TER sin verificar (regla 23): no disponible",
+      "accesibilidad": "pendiente de conocer el broker (regla 71)",
+      "fiscalidad_nota": "",
+      "red_team": [
+        "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+      ],
+      "vigilar": []
+    },
+    {
+      "producto": {
+        "nombre": "iShares MSCI World UCITS ETF (Acc)",
+        "ticker": "IWDA.AS",
+        "isin": "IE00B4L5Y983",
+        "emisor": "iShares/BlackRock",
+        "categoria": "ETF_GLOBAL",
+        "naturaleza": "ETF_ACCIONES",
+        "replica": "fisica",
+        "ucits": true,
+        "domicilio": "Irlanda",
+        "divisa_cotizacion": "EUR",
+        "divisa_activos": "USD",
+        "acumulacion": true,
+        "ter": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "aum": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "spread": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "antiguedad_anios": null,
+        "n_posiciones": null,
+        "concentracion_top10": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "coste_total_estimado": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "notas": "Global developed large+mid cap. Referencia de amplitud."
+      },
+      "explicacion_sencilla": "Modo determinista: análisis cualitativo pendiente. Producto de categoría ETF_GLOBAL.",
+      "calidad_subyacente": "no disponible sin LLM",
+      "tesis": {
+        "positiva": "",
+        "negativa": "",
+        "catalizadores": [],
+        "invalidadores": [],
+        "escenarios": []
+      },
+      "scores": {
+        "potencial": 40.0,
+        "rentabilidad_riesgo": 43.0,
+        "personalizado": null,
+        "vehiculo": 50.0,
+        "confianza": 0.0,
+        "etiqueta_potencial": "Poco atractiva",
+        "etiqueta_rr": "Poco atractiva"
+      },
+      "niveles": {
+        "precio_actual": null,
+        "fair_value": null,
+        "precio_atractivo": null,
+        "precio_muy_atractivo": null,
+        "nivel_invalidacion": null,
+        "etiqueta_fair_value": "ESTIMADO"
+      },
+      "buyability": "MANTENER / ESPERAR",
+      "riesgos": [
+        "modo determinista: riesgos específicos sin analizar"
+      ],
+      "coste_total_nota": "TER sin verificar (regla 23): no disponible",
+      "accesibilidad": "pendiente de conocer el broker (regla 71)",
+      "fiscalidad_nota": "",
+      "red_team": [
+        "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+      ],
+      "vigilar": []
+    },
+    {
+      "producto": {
+        "nombre": "Vanguard FTSE All-World UCITS ETF (Acc)",
+        "ticker": "VWCE.DE",
+        "isin": "IE00BK5BQT80",
+        "emisor": "Vanguard",
+        "categoria": "ETF_GLOBAL",
+        "naturaleza": "ETF_ACCIONES",
+        "replica": "fisica",
+        "ucits": true,
+        "domicilio": "Irlanda",
+        "divisa_cotizacion": "EUR",
+        "divisa_activos": "USD",
+        "acumulacion": true,
+        "ter": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "aum": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "spread": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "antiguedad_anios": null,
+        "n_posiciones": null,
+        "concentracion_top10": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "coste_total_estimado": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "notas": "Global developed+emerging. Alternativa indirecta diversificada."
+      },
+      "explicacion_sencilla": "Modo determinista: análisis cualitativo pendiente. Producto de categoría ETF_GLOBAL.",
+      "calidad_subyacente": "no disponible sin LLM",
+      "tesis": {
+        "positiva": "",
+        "negativa": "",
+        "catalizadores": [],
+        "invalidadores": [],
+        "escenarios": []
+      },
+      "scores": {
+        "potencial": 40.0,
+        "rentabilidad_riesgo": 43.0,
+        "personalizado": null,
+        "vehiculo": 50.0,
+        "confianza": 0.0,
+        "etiqueta_potencial": "Poco atractiva",
+        "etiqueta_rr": "Poco atractiva"
+      },
+      "niveles": {
+        "precio_actual": null,
+        "fair_value": null,
+        "precio_atractivo": null,
+        "precio_muy_atractivo": null,
+        "nivel_invalidacion": null,
+        "etiqueta_fair_value": "ESTIMADO"
+      },
+      "buyability": "MANTENER / ESPERAR",
+      "riesgos": [
+        "modo determinista: riesgos específicos sin analizar"
+      ],
+      "coste_total_nota": "TER sin verificar (regla 23): no disponible",
+      "accesibilidad": "pendiente de conocer el broker (regla 71)",
+      "fiscalidad_nota": "",
+      "red_team": [
+        "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+      ],
+      "vigilar": []
+    },
+    {
+      "producto": {
+        "nombre": "Invesco Physical Gold ETC",
+        "ticker": "SGLD.L",
+        "isin": "IE00B579F325",
+        "emisor": "Invesco",
+        "categoria": "ETC",
+        "naturaleza": "ETC_FISICO",
+        "replica": "fisica",
+        "ucits": false,
+        "domicilio": "Irlanda",
+        "divisa_cotizacion": "EUR",
+        "divisa_activos": "USD",
+        "acumulacion": true,
+        "ter": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "aum": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "spread": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "antiguedad_anios": null,
+        "n_posiciones": null,
+        "concentracion_top10": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "coste_total_estimado": {
+          "valor": null,
+          "etiqueta": "NO_DISPONIBLE",
+          "fuente": "",
+          "fecha": null,
+          "nota": ""
+        },
+        "notas": "Oro físico asignado. No UCITS: estructura de deuda con colateral."
+      },
+      "explicacion_sencilla": "Modo determinista: análisis cualitativo pendiente. Producto de categoría ETC.",
+      "calidad_subyacente": "no disponible sin LLM",
+      "tesis": {
+        "positiva": "",
+        "negativa": "",
+        "catalizadores": [],
+        "invalidadores": [],
+        "escenarios": []
+      },
+      "scores": {
+        "potencial": 40.0,
+        "rentabilidad_riesgo": 43.0,
+        "personalizado": null,
+        "vehiculo": 50.0,
+        "confianza": 0.0,
+        "etiqueta_potencial": "Poco atractiva",
+        "etiqueta_rr": "Poco atractiva"
+      },
+      "niveles": {
+        "precio_actual": null,
+        "fair_value": null,
+        "precio_atractivo": null,
+        "precio_muy_atractivo": null,
+        "nivel_invalidacion": null,
+        "etiqueta_fair_value": "ESTIMADO"
+      },
+      "buyability": "MANTENER / ESPERAR",
+      "riesgos": [
+        "modo determinista: riesgos específicos sin analizar"
+      ],
+      "coste_total_nota": "TER sin verificar (regla 23): no disponible",
+      "accesibilidad": "pendiente de conocer el broker (regla 71)",
+      "fiscalidad_nota": "",
+      "red_team": [
+        "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+      ],
+      "vigilar": []
+    }
+  ],
+  "descartados": [
+    {
+      "producto": "iShares Core S&P 500 UCITS ETF (Acc)",
+      "motivo": "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+    },
+    {
+      "producto": "Global X Copper Miners UCITS ETF",
+      "motivo": "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+    },
+    {
+      "producto": "iShares MSCI World Energy Sector UCITS ETF",
+      "motivo": "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+    },
+    {
+      "producto": "SPDR S&P Global Natural Resources UCITS ETF",
+      "motivo": "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+    },
+    {
+      "producto": "Amundi MSCI World Materials UCITS ETF",
+      "motivo": "Modo determinista: red team pendiente de LLM; tratar todo veredicto como MANTENER / ESPERAR."
+    }
+  ],
+  "ganadores": {
+    "Mayor potencial": "Xtrackers MSCI World Value UCITS ETF",
+    "Mejor rentabilidad/riesgo": "WisdomTree Copper ETC",
+    "Mejor vehículo": "WisdomTree Copper ETC",
+    "Mayor convicción (confianza)": "WisdomTree Copper ETC",
+    "Mejor compra actual": "ver buyability en el análisis individual (regla 149)"
+  },
+  "recomendacion": "Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 149)",
+  "confianza_analisis": "baja",
+  "advertencia_sin_perfil": "El ranking es objetivo/temático y todavía no está personalizado al perfil del inversor. (regla 12)",
+  "robustez": "SENSIBLE",
+  "_control": "Control final del TOP 5 (regla 80):\n- ¿Hay exactamente 5? SÍ\n- Universo explorado: 10 (mínimo 10, regla 8)\n- Candidatos válidos: 10\n- Categorías cubiertas: ETC, ETF_GLOBAL, FACTOR_VALUE\n- Robustez (regla 116): SENSIBLE\n- Categorías relevantes sin representación en el TOP 5: ETF_SECTORIAL (regla 80 paso 4)\n- Ranking SENSIBLE: diferencias pequeñas; explicarlo como exige la regla 152 y analizar sensibilidad (regla 153).",
+  "avisos": [
+    "MODO DETERMINISTA (sin LLM): los scores son neutros de proceso, no juicios de mercado. Configura ANALIZADOR_LLM_* para análisis reales."
+  ],
+  "seguimiento": [
+    "Primer análisis registrado de esta temática (regla 105): sin histórico que comparar."
+  ]
+}

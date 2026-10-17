@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Tests del motor (unittest stdlib)
+        run: |
+          PYTHONPATH=src python3 -m unittest discover -s tests -t . -v
+        env:
+          ANALIZADOR_ALLOW_NETWORK: "0"
+
+  grafo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gates del grafo + regresión QA (patrón fukura)
+        run: |
+          python3 .semantic-graph/pipeline.py
+          python3 .semantic-graph/scripts/run_graph_qa_eval.py
+      - name: Sin diferencias en grafo regenerado (idempotencia)
+        run: |
+          cp .semantic-graph/memory.json /tmp/memory-antes.json
+          python3 .semantic-graph/pipeline.py
+          diff .semantic-graph/memory.json /tmp/memory-antes.json
+
+  api-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build de la imagen Docker de la API
+        run: docker build -f docker/Dockerfile -t analizador-api:ci .

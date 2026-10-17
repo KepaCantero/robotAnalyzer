@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "knowledge-graph": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "/Users/kepacantero/analizador/.semantic-graph/memory.json"
+      }
+    },
+    "analizador-datos": {
+      "command": "python3",
+      "args": ["-m", "analizador.mcp.server"],
+      "cwd": "/Users/kepacantero/analizador/src",
+      "env": {
+        "PYTHONPATH": "/Users/kepacantero/analizador/src",
+        "ANALIZADOR_ALLOW_NETWORK": "1"
+      }
+    }
+  }
+}

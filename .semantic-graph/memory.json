@@ -1,0 +1,204 @@
+{"type": "entity", "name": "theme:mineria-de-cobre", "entityType": "Tema", "observations": ["label: Minería de cobre", "description: Tesis de referencia del documento (regla 3): exposición a cobre vía mineras, recursos naturales, ETCs físico/futuros, electrificación e infraestructura eléctrica.", "reglas_doc: 3, 62, 65, 148"]}
+{"type": "entity", "name": "category:etf-sectorial", "entityType": "Categoria", "observations": ["label: ETF sectorial", "regla: 9"]}
+{"type": "entity", "name": "category:etf-tematico", "entityType": "Categoria", "observations": ["label: ETF temático", "regla: 9"]}
+{"type": "entity", "name": "category:etf-regional", "entityType": "Categoria", "observations": ["label: ETF regional", "regla: 9"]}
+{"type": "entity", "name": "category:etf-global", "entityType": "Categoria", "observations": ["label: ETF global", "regla: 9"]}
+{"type": "entity", "name": "category:fondo-activo", "entityType": "Categoria", "observations": ["label: Fondo activo", "regla: 9"]}
+{"type": "entity", "name": "category:fondo-indexado", "entityType": "Categoria", "observations": ["label: Fondo indexado", "regla: 9"]}
+{"type": "entity", "name": "category:smart-beta", "entityType": "Categoria", "observations": ["label: Smart beta", "regla: 9"]}
+{"type": "entity", "name": "category:factor-value", "entityType": "Categoria", "observations": ["label: Factor value", "regla: 9"]}
+{"type": "entity", "name": "category:etc", "entityType": "Categoria", "observations": ["label: ETC / materia prima", "regla: 9"]}
+{"type": "entity", "name": "category:etn", "entityType": "Categoria", "observations": ["label: ETN", "regla: 9"]}
+{"type": "entity", "name": "category:apalancado", "entityType": "Categoria", "observations": ["label: Apalancado", "regla: 46"]}
+{"type": "entity", "name": "category:inverso", "entityType": "Categoria", "observations": ["label: Inverso", "regla: 47"]}
+{"type": "entity", "name": "category:renta-fija", "entityType": "Categoria", "observations": ["label: Renta fija", "regla: 9"]}
+{"type": "entity", "name": "category:reit", "entityType": "Categoria", "observations": ["label: REIT", "regla: 9"]}
+{"type": "entity", "name": "category:exposicion-indirecta", "entityType": "Categoria", "observations": ["label: Exposición indirecta", "regla: 9"]}
+{"type": "entity", "name": "category:equal-weight", "entityType": "Categoria", "observations": ["label: Equal weight", "regla: 9"]}
+{"type": "entity", "name": "source:emisor", "entityType": "Fuente", "observations": ["label: Emisor", "prioridad: 1", "regla: 73"]}
+{"type": "entity", "name": "source:documento-oficial", "entityType": "Fuente", "observations": ["label: Documento oficial (KID/folleto)", "prioridad: 2", "regla: 73"]}
+{"type": "entity", "name": "source:proveedor-indice", "entityType": "Fuente", "observations": ["label: Proveedor del índice", "prioridad: 3", "regla: 73"]}
+{"type": "entity", "name": "source:regulador", "entityType": "Fuente", "observations": ["label: Regulador (CNMV/SEC)", "prioridad: 4", "regla: 73"]}
+{"type": "entity", "name": "source:organismo-estadistico", "entityType": "Fuente", "observations": ["label: Organismo estadístico", "prioridad: 5", "regla: 73"]}
+{"type": "entity", "name": "source:fuente-financiera", "entityType": "Fuente", "observations": ["label: Fuente financiera reconocida", "prioridad: 6", "regla: 73"]}
+{"type": "entity", "name": "source:secundaria", "entityType": "Fuente", "observations": ["label: Fuente secundaria", "prioridad: 7", "regla: 73"]}
+{"type": "entity", "name": "method:metodologia-156-reglas", "entityType": "Metodologia", "observations": ["label: Metodología de las 156 reglas", "description: Fuente maestra: ANALIZADOR DE FONDOS Y ETFS.docx. Destilada en src/analizador/agents/prompts/ y ejecutada por el motor determinista (src/analizador/scoring/).", "documento: ANALIZADOR DE FONDOS Y ETFS.docx"]}
+{"type": "entity", "name": "adr:001-knowledge-graph", "entityType": "ADR", "observations": ["label: ADR-001: Adoptar knowledge graph (patrón fukura)", "estado: aceptado", "decision: Grafo JSONL formato server-memory (@modelcontextprotocol/server-memory) servido como MCP knowledge-graph, con curated/*.json como capa editable y memory.json generado.", "motivo: Reglas 105/137: el seguimiento necesita memoria de rankings anteriores y productos descubiertos. El grafo fukura resuelve exactamente persistencia + consulta semántica con coste cero de infraestructura.", "alternativas: Sin grafo (análisis aislados); base de datos relacional (peso innecesario para conocimiento narrativo)."]}
+{"type": "entity", "name": "adr:002-boveda-obsidian", "entityType": "ADR", "observations": ["label: ADR-002: Bóveda Obsidian como entregable navegable", "estado: aceptado", "decision: Proyección read-only del grafo en boveda/ (una nota por entidad, frontmatter graph_id como join key, generated: true).", "motivo: Aquí el lector final es el inversor: la bóveda ES el producto de lectura. Patrón fukura de proyección regenerada evita divergencias.", "alternativas: Dashboard web (coste de desarrollo); solo PDFs (no navegable)."]}
+{"type": "entity", "name": "adr:003-metabolismo-ttl", "entityType": "ADR", "observations": ["label: ADR-003: Metabolismo de datos (TTL/decay)", "estado: aceptado", "decision: TTL por tipo de dato (precio 1d, AUM 7d, TER 30d…) con degradación de etiqueta al caducar.", "motivo: Regla 72: 'nunca presentar datos antiguos como actuales'. El metabolism fukura implementa la caducidad de forma mecánica, no discutible.", "alternativas: Datos inmortales."]}
+{"type": "entity", "name": "adr:004-rechazo-agent-hud", "entityType": "ADR", "observations": ["label: ADR-004: RECHAZAR agent-hud / orquestación de equipo", "estado: rechazado", "decision: No adoptar el Agent Control Center de fukura.", "motivo: Fukura lo necesita para coordinar trabajo humano multi-repo (decisiones, pasos, HUD HTTP). El analizador es un producto de una sola persona; añade complejidad sin beneficio.", "alternativas: "]}
+{"type": "entity", "name": "adr:005-rechazo-sync-externo-agentes", "entityType": "ADR", "observations": ["label: ADR-005: RECHAZAR kg_sync externo por agentes", "estado: rechazado", "decision: No replicar la sync Jira/Confluence por scripts de agente con TTL.", "motivo: Las 'fuentes externas' del analizador son APIs de mercado consumidas en cada análisis, no documentos que ingerir.", "alternativas: Capa de datos en el motor (sources/registry.py + adaptador Yahoo) con caché y TTL del metabolism-policy: la frescura la garantiza código en runtime, no re-sincronizaciones de agente."]}
+{"type": "entity", "name": "adr:006-scoring-determinista", "entityType": "ADR", "observations": ["label: ADR-006: El score lo calcula código, no el LLM", "estado: aceptado", "decision: Los agentes aportan factores 0-100 con métricas de origen; pesos, doble conteo, penalizaciones, confianza y TOP 5 los aplica el motor determinista.", "motivo: Regla 144 (control final auditable) y regla 137 (API/automatización): la reproducibilidad exige que el mismo input dé el mismo score. Un LLM no garantiza eso; el sí lo hace.", "alternativas: "]}
+{"type": "entity", "name": "adr:007-suite-agentes-analisis", "entityType": "ADR", "observations": ["label: ADR-007: Skills de análisis sobre el grafo (patrón fukura adaptado)", "estado: aceptado", "decision: El ciclo ask→define→verify→implement→sync de fukura se adapta a las fases del análisis: consultar grafo → interpretar/descubrir → analizar+red team → publicar en bóveda → regenerar grafo. Subagentes en .zcode/agents/.", "motivo: Regla 134 (modo actualización) equivale a sync-kg; regla 105 (seguimiento) equivale a la comparación de versiones del grafo. El patrón encaja 1:1.", "alternativas: "]}
+{"type": "entity", "name": "product:copxl", "entityType": "Producto", "observations": ["label: Global X Copper Miners UCITS ETF", "emisor: Global X", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Mineras de cobre. Regla 148: renta variable, NO materia prima. | Global X Copper Miners UCITS (LSE, USD) — verificado vía Yahoo search 2026-10-14"]}
+{"type": "entity", "name": "product:ie00b4l5y983", "entityType": "Producto", "observations": ["label: iShares MSCI World UCITS ETF (Acc)", "emisor: iShares/BlackRock", "naturaleza: ETF_ACCIONES", "isin: IE00B4L5Y983", "notas: Global developed large+mid cap. Referencia de amplitud."]}
+{"type": "entity", "name": "product:ie00bk5bqt80", "entityType": "Producto", "observations": ["label: Vanguard FTSE All-World UCITS ETF (Acc)", "emisor: Vanguard", "naturaleza: ETF_ACCIONES", "isin: IE00BK5BQT80", "notas: Global developed+emerging. Alternativa indirecta diversificada."]}
+{"type": "entity", "name": "product:ie00b579f325", "entityType": "Producto", "observations": ["label: Invesco Physical Gold ETC", "emisor: Invesco", "naturaleza: ETC_FISICO", "isin: IE00B579F325", "notas: Oro físico asignado. No UCITS: estructura de deuda con colateral."]}
+{"type": "entity", "name": "product:ie00b5bmr087", "entityType": "Producto", "observations": ["label: iShares Core S&P 500 UCITS ETF (Acc)", "emisor: iShares/BlackRock", "naturaleza: ETF_ACCIONES", "isin: IE00B5BMR087", "notas: EE.UU. large cap. Proxy de beta estadounidense."]}
+{"type": "entity", "name": "product:copal", "entityType": "Producto", "observations": ["label: WisdomTree Copper ETC", "emisor: WisdomTree", "naturaleza: ETC_FUTUROS", "isin: NO VERIFICADO (regla 101)", "notas: Exposición directa a cobre vía futuros: contango/backwardation y roll yield importan (regla 50). | WisdomTree Copper ETC — verificado vía Yahoo search 2026-10-14"]}
+{"type": "entity", "name": "product:wensas", "entityType": "Producto", "observations": ["label: iShares MSCI World Energy Sector UCITS ETF", "emisor: iShares/BlackRock", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Energía global: solapamiento parcial con materiales/infraestructura eléctrica. | iShares MSCI World Energy UCITS (Euronext) — verificado vía Yahoo search 2026-10-14"]}
+{"type": "entity", "name": "product:gnr", "entityType": "Producto", "observations": ["label: SPDR S&P Global Natural Resources UCITS ETF", "emisor: SPDR/State Street", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Recursos naturales diversificados (energía+mineras+agro). Exposición indirecta. | Versión US (la UCITS no aparece en Yahoo) — verificado 2026-10-14"]}
+{"type": "entity", "name": "product:remxas", "entityType": "Producto", "observations": ["label: VanEck Rare Earth and Strategic Metals UCITS ETF", "emisor: VanEck", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Metales estratégicos: tesis de electrificación adyacente al cobre."]}
+{"type": "entity", "name": "product:igfas", "entityType": "Producto", "observations": ["label: iShares Global Infrastructure UCITS ETF", "emisor: iShares/BlackRock", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Infraestructura (redes eléctricas incl.): beneficiaria indirecta de la tesis cobre."]}
+{"type": "entity", "name": "product:xdevde", "entityType": "Producto", "observations": ["label: Xtrackers MSCI World Value UCITS ETF", "emisor: Xtrackers/DWS", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Value global: factor alternativo con solapamiento parcial en mineras."]}
+{"type": "entity", "name": "product:matwpa", "entityType": "Producto", "observations": ["label: Amundi MSCI World Materials UCITS ETF", "emisor: Amundi", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Materiales globales: incluye químicos y construcción, no solo minería."]}
+{"type": "entity", "name": "product:fondo-indexado-materiales-fondo-traspasable-es-plantilla", "entityType": "Producto", "observations": ["label: Fondo indexado Materiales (fondo traspasable ES) — PLANTILLA", "emisor: (definir gestora)", "naturaleza: FONDO_INDEXADO", "isin: NO VERIFICADO (regla 101)", "notas: PLANTILLA: los fondos traspasables españoles (regla 29) requieren selección manual del usuario; sin ISIN verificado no se analizan en producción, solo se marcan como categoría disponible."]}
+{"type": "entity", "name": "product:equal", "entityType": "Producto", "observations": ["label: Invesco S&P 500 Equal Weight UCITS ETF", "emisor: Invesco", "naturaleza: ETF_ACCIONES", "isin: NO VERIFICADO (regla 101)", "notas: Equal weight: reduce concentración megacaps. Categoría smart beta."]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-174927", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "product:copll", "entityType": "Producto", "observations": ["label: WisdomTree Copper ETC"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180554", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180643", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180704", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180739", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180755", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-180931", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-182052", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "entity", "name": "analysis:minera-de-cobre_20261014-182655", "entityType": "Analisis", "observations": ["tema: minería de cobre", "fecha: 2026-10-14", "confianza: baja", "robustez: SENSIBLE", "top5_tamano: 5", "recomendacion: Estos son los cinco mejores vehículos que he encontrado, pero actualmente no considero que ninguno tenga un margen de seguridad suficiente para comprar. TOP 5 ≠ recomendación de compra. (reglas 85, 14"]}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:etf-sectorial"}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:etf-tematico"}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:etc"}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:etf-global"}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:factor-value"}
+{"type": "relation", "from": "theme:mineria-de-cobre", "relationType": "EXPLORES", "to": "category:exposicion-indirecta"}
+{"type": "relation", "from": "category:etf-sectorial", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:etf-tematico", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:etf-regional", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:etf-global", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:fondo-activo", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:fondo-indexado", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:smart-beta", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:factor-value", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:etc", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:etn", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:apalancado", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:inverso", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:renta-fija", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:reit", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:exposicion-indirecta", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "category:equal-weight", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "source:documento-oficial", "relationType": "LOWER_PRIORITY_THAN", "to": "source:emisor"}
+{"type": "relation", "from": "source:proveedor-indice", "relationType": "LOWER_PRIORITY_THAN", "to": "source:documento-oficial"}
+{"type": "relation", "from": "source:regulador", "relationType": "LOWER_PRIORITY_THAN", "to": "source:proveedor-indice"}
+{"type": "relation", "from": "source:organismo-estadistico", "relationType": "LOWER_PRIORITY_THAN", "to": "source:regulador"}
+{"type": "relation", "from": "source:fuente-financiera", "relationType": "LOWER_PRIORITY_THAN", "to": "source:organismo-estadistico"}
+{"type": "relation", "from": "source:secundaria", "relationType": "LOWER_PRIORITY_THAN", "to": "source:fuente-financiera"}
+{"type": "relation", "from": "adr:001-knowledge-graph", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:002-boveda-obsidian", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:003-metabolismo-ttl", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:004-rechazo-agent-hud", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:005-rechazo-sync-externo-agentes", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:006-scoring-determinista", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "adr:007-suite-agentes-analisis", "relationType": "PART_OF", "to": "method:metodologia-156-reglas"}
+{"type": "relation", "from": "product:copxl", "relationType": "BELONGS_TO", "to": "category:etf-sectorial"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "product:copal", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "product:wensas", "relationType": "BELONGS_TO", "to": "category:etf-sectorial"}
+{"type": "relation", "from": "product:gnr", "relationType": "BELONGS_TO", "to": "category:etf-sectorial"}
+{"type": "relation", "from": "product:remxas", "relationType": "BELONGS_TO", "to": "category:etf-tematico"}
+{"type": "relation", "from": "product:igfas", "relationType": "BELONGS_TO", "to": "category:etf-tematico"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "product:matwpa", "relationType": "BELONGS_TO", "to": "category:etf-sectorial"}
+{"type": "relation", "from": "product:fondo-indexado-materiales-fondo-traspasable-es-plantilla", "relationType": "BELONGS_TO", "to": "category:fondo-indexado"}
+{"type": "relation", "from": "product:equal", "relationType": "BELONGS_TO", "to": "category:equal-weight"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "RANKS_POS1", "to": "product:copll"}
+{"type": "relation", "from": "product:copll", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "RANKS_POS2", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "RANKS_POS3", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "RANKS_POS4", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-174927", "relationType": "RANKS_POS5", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180554", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180643", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180704", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180739", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180755", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-180931", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182052", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "ANALYZES", "to": "theme:mineria-de-cobre"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "RANKS_POS1", "to": "product:xdevde"}
+{"type": "relation", "from": "product:xdevde", "relationType": "BELONGS_TO", "to": "category:factor-value"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "RANKS_POS2", "to": "product:ie00b4l5y983"}
+{"type": "relation", "from": "product:ie00b4l5y983", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "RANKS_POS3", "to": "product:ie00bk5bqt80"}
+{"type": "relation", "from": "product:ie00bk5bqt80", "relationType": "BELONGS_TO", "to": "category:etf-global"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "RANKS_POS4", "to": "product:ie00b579f325"}
+{"type": "relation", "from": "product:ie00b579f325", "relationType": "BELONGS_TO", "to": "category:etc"}
+{"type": "relation", "from": "analysis:minera-de-cobre_20261014-182655", "relationType": "RANKS_POS5", "to": "product:ie00b5bmr087"}
+{"type": "relation", "from": "product:ie00b5bmr087", "relationType": "BELONGS_TO", "to": "category:etf-regional"}

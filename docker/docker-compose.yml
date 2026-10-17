@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Sin clave → modo determinista dentro del contenedor
+      ANALIZADOR_LLM_BASE_URL: ${ANALIZADOR_LLM_BASE_URL:-}
+      ANALIZADOR_LLM_API_KEY: ${ANALIZADOR_LLM_API_KEY:-}
+      ANALIZADOR_LLM_MODEL: ${ANALIZADOR_LLM_MODEL:-gpt-4o-mini}
+      ANALIZADOR_ALLOW_NETWORK: "1"
+    volumes:
+      # grafo + bóveda persisten entre despliegues (patrón fukura: la memoria
+      # es un artefacto vivo, no parte de la imagen)
+      - ../.semantic-graph:/app/semantic-graph
+      - ../boveda:/app/boveda
+      - ../datos:/app/datos
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

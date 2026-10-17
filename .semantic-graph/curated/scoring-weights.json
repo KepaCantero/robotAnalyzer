@@ -1,0 +1,66 @@
+{
+  "$comment": "Pesos de scoring — reglas 58, 59, 60, 62 del ANALIZADOR DE FONDOS Y ETFS.docx. Punto de partida adaptativo: los pesos cambian por tipo de producto. Editar aquí; el motor lee este fichero, nunca hardcoded.",
+  "potencial": {
+    "base": {
+      "valoracion": 0.25,
+      "crecimiento_fundamental": 0.25,
+      "catalizadores": 0.15,
+      "momentum": 0.10,
+      "calidad_estructural": 0.15,
+      "asimetria": 0.10
+    },
+    "por_naturaleza": {
+      "ETF_ACCIONES": {},
+      "ETF_BONOS": {"valoracion": 0.15, "crecimiento_fundamental": 0.10, "catalizadores": 0.10, "momentum": 0.10, "calidad_estructural": 0.15, "asimetria": 0.15, "macro_tipos": 0.25},
+      "ETF_MATERIAS_PRIMAS": {"valoracion": 0.20, "crecimiento_fundamental": 0.10, "catalizadores": 0.15, "momentum": 0.15, "calidad_estructural": 0.10, "asimetria": 0.10, "estructura_futuros": 0.20},
+      "ETC_FUTUROS": {"valoracion": 0.15, "crecimiento_fundamental": 0.05, "catalizadores": 0.15, "momentum": 0.15, "calidad_estructural": 0.10, "asimetria": 0.10, "estructura_futuros": 0.30},
+      "ETC_FISICO": {"valoracion": 0.20, "crecimiento_fundamental": 0.05, "catalizadores": 0.20, "momentum": 0.15, "calidad_estructural": 0.15, "asimetria": 0.10, "estructura_futuros": 0.15},
+      "FONDO_ACTIVO": {"valoracion": 0.20, "crecimiento_fundamental": 0.20, "catalizadores": 0.10, "momentum": 0.10, "calidad_estructural": 0.25, "asimetria": 0.05, "alpha_gestor": 0.10},
+      "SINTETICO": {"valoracion": 0.20, "crecimiento_fundamental": 0.20, "catalizadores": 0.15, "momentum": 0.10, "calidad_estructural": 0.15, "asimetria": 0.10, "riesgo_contraparte": 0.10}
+    }
+  },
+  "rentabilidad_riesgo": {
+    "base": {
+      "potencial": 0.25,
+      "riesgo_perdida_permanente": 0.20,
+      "valoracion": 0.15,
+      "calidad": 0.15,
+      "volatilidad_drawdown": 0.10,
+      "liquidez_estructura": 0.05,
+      "diversificacion": 0.10
+    },
+    "por_naturaleza": {
+      "APALANCADO": {"potencial": 0.20, "riesgo_perdida_permanente": 0.30, "valoracion": 0.10, "calidad": 0.10, "volatilidad_drawdown": 0.15, "liquidez_estructura": 0.05, "diversificacion": 0.10},
+      "ETF_INVERSO": {"potencial": 0.15, "riesgo_perdida_permanente": 0.30, "valoracion": 0.10, "calidad": 0.10, "volatilidad_drawdown": 0.15, "liquidez_estructura": 0.10, "diversificacion": 0.10},
+      "REIT": {"potencial": 0.20, "riesgo_perdida_permanente": 0.15, "valoracion": 0.15, "calidad": 0.15, "volatilidad_drawdown": 0.10, "liquidez_estructura": 0.05, "diversificacion": 0.10, "sensibilidad_tipos": 0.10}
+    }
+  },
+  "vehiculo": {
+    "$comment": "Regla 60: score del vehículo independiente del subyacente.",
+    "estructura": 0.15,
+    "costes": 0.20,
+    "liquidez": 0.15,
+    "tracking": 0.15,
+    "tamano": 0.10,
+    "transparencia": 0.10,
+    "fiscalidad": 0.05,
+    "accesibilidad": 0.05,
+    "riesgo_contraparte": 0.05
+  },
+  "penalizaciones": {
+    "$comment": "Reglas 77, 92, 94, 102: penalizaciones aplicadas tras el score base.",
+    "valoracion_extrema_sin_fundamentos": -12,
+    "narrativa_euforia_momentum": -8,
+    "datos_insuficientes_criticos": -10,
+    "baja_liquidez_relevante": -6,
+    "solapamiento_cartera_relevante": -8,
+    "horizonte_incompatible": -10
+  },
+  "personalizado": {
+    "$comment": "Regla 61: mezcla R/R con adecuación al perfil. Solo con perfil.",
+    "peso_rr": 0.60,
+    "adecuacion_horizonte": 0.15,
+    "adecuacion_riesgo": 0.15,
+    "adecuacion_fiscal_broker": 0.10
+  }
+}

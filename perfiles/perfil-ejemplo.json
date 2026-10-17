@@ -1,0 +1,19 @@
+{
+  "$comment": "Perfil de inversor de EJEMPLO (regla 13). Copiar a perfil-real.json (ignorado por git) y rellenar. No inventar campos: lo ausente queda null.",
+  "residencia_fiscal": "ES",
+  "edad": 42,
+  "patrimonio_eur": 180000,
+  "ingresos_anuales_eur": 65000,
+  "capital_disponible_eur": 25000,
+  "aportacion_mensual_eur": 500,
+  "horizonte_anios": 2.0,
+  "tolerancia_riesgo": 3,
+  "capacidad_perdida": 3,
+  "experiencia": "media",
+  "objetivos": ["crecimiento real a medio plazo", "diversificar fuera de Europa"],
+  "estrategia": "DCA mensual con entradas escalonadas",
+  "broker": null,
+  "moneda_base": "EUR",
+  "preferencias": ["UCITS preferente", "acumulación"],
+  "restricciones": ["sin apalancados", "sin inversos"]
+}

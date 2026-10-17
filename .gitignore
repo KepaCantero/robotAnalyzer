@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.coverage
+
+# Secretos y entorno
+.env
+.env.local
+
+# Artefactos generados (regenerar con pipeline.py / CLI)
+.semantic-graph/memory.json
+.semantic-graph/ir.json
+.semantic-graph/cache/kg-context-index.json
+.semantic-graph/state/last-runs.json
+.semantic-graph/logs/*.log
+.semantic-graph/__pycache__/
+
+# Datos de usuario (perfiles reales y carteras reales: nunca al repo)
+perfiles/perfil-real.*
+perfiles/cartera-real.*
+
+# OS
+.DS_Store
+Thumbs.db

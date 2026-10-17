@@ -1,0 +1,35 @@
+{
+  "$comment": "Banco de regresión del grafo (patrón fukura run_graph_qa_eval). Cada pregunta debe ser respondible por subgraph_retriever; PASS exige que la respuesta contenga la clave esperada. Regla 144 adaptada: el control final también se automatiza.",
+  "casos": [
+    {
+      "id": "qa-01",
+      "pregunta": "¿Qué ADR rechaza el agent-hud de fukura?",
+      "clave_esperada": "adr:004",
+      "estrategia": "keyword"
+    },
+    {
+      "id": "qa-02",
+      "pregunta": "¿Qué categorías explora la temática de minería de cobre?",
+      "clave_esperada": "theme:mineria-de-cobre",
+      "estrategia": "bfs"
+    },
+    {
+      "id": "qa-03",
+      "pregunta": "¿Cuál es la fuente de máxima prioridad según la jerarquía?",
+      "clave_esperada": "source:emisor",
+      "estrategia": "keyword"
+    },
+    {
+      "id": "qa-04",
+      "pregunta": "¿Qué ADR decide que el score lo calcule código determinista?",
+      "clave_esperada": "adr:006",
+      "estrategia": "keyword"
+    },
+    {
+      "id": "qa-05",
+      "pregunta": "¿Qué fuente tiene prioridad 6 (fuente financiera reconocida)?",
+      "clave_esperada": "source:fuente-financiera",
+      "estrategia": "keyword"
+    }
+  ]
+}

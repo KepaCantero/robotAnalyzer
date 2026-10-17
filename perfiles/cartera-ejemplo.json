@@ -1,0 +1,9 @@
+{
+  "$comment": "Cartera de EJEMPLO (regla 14): pesos 0-1. Con cartera, el análisis añade concentración, overlap y solapamiento temático.",
+  "posiciones": [
+    {"producto": "iShares MSCI World UCITS ETF (Acc)", "peso": 0.45, "categoria": "ETF_GLOBAL", "isin": "IE00B4L5Y983"},
+    {"producto": "Vanguard FTSE All-World UCITS ETF (Acc)", "peso": 0.25, "categoria": "ETF_GLOBAL", "isin": "IE00BK5BQT80"},
+    {"producto": "Invesco Physical Gold ETC", "peso": 0.10, "categoria": "ETC", "isin": "IE00B579F325"},
+    {"producto": "iShares Core S&P 500 UCITS ETF (Acc)", "peso": 0.20, "categoria": "ETF_REGIONAL", "isin": "IE00B5BMR087"}
+  ]
+}

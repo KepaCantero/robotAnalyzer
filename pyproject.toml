@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analizador-fondos"
+version = "0.1.0"
+description = "Analizador profesional de fondos, fondos indexados y ETFs — motor de scoring determinista + agentes LLM + knowledge graph"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Propietario" }
+authors = [{ name = "Kepa Cantero" }]
+# Núcleo 100% stdlib: el motor, el grafo y el CLI corren sin dependencias.
+dependencies = []
+
+[project.optional-dependencies]
+# API REST de producción (opcional).
+api = ["fastapi>=0.110", "uvicorn>=0.29"]
+
+[project.scripts]
+analizador = "analizador.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+analizador = ["agents/prompts/*.md"]

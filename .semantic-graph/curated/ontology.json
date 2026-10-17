@@ -1,0 +1,114 @@
+{
+  "$comment": "Ontología curada del analizador — patrón fukura adaptado al dominio de inversión. Editar AQUÍ, nunca memory.json a mano (las observaciones manual:* sobreviven re-syncs). El pipeline.py valida esta estructura antes de generar el grafo.",
+  "temas": [
+    {
+      "nombre": "theme:mineria-de-cobre",
+      "label": "Minería de cobre",
+      "descripcion": "Tesis de referencia del documento (regla 3): exposición a cobre vía mineras, recursos naturales, ETCs físico/futuros, electrificación e infraestructura eléctrica.",
+      "categorias": ["ETF_SECTORIAL", "ETF_TEMATICO", "ETC", "ETF_GLOBAL", "FACTOR_VALUE", "EXPOSICION_INDIRECTA"],
+      "reglas_doc": [3, 62, 65, 148]
+    }
+  ],
+  "categorias": [
+    {"nombre": "category:etf-sectorial", "label": "ETF sectorial", "regla": 9},
+    {"nombre": "category:etf-tematico", "label": "ETF temático", "regla": 9},
+    {"nombre": "category:etf-regional", "label": "ETF regional", "regla": 9},
+    {"nombre": "category:etf-global", "label": "ETF global", "regla": 9},
+    {"nombre": "category:fondo-activo", "label": "Fondo activo", "regla": 9},
+    {"nombre": "category:fondo-indexado", "label": "Fondo indexado", "regla": 9},
+    {"nombre": "category:smart-beta", "label": "Smart beta", "regla": 9},
+    {"nombre": "category:factor-value", "label": "Factor value", "regla": 9},
+    {"nombre": "category:etc", "label": "ETC / materia prima", "regla": 9},
+    {"nombre": "category:etn", "label": "ETN", "regla": 9},
+    {"nombre": "category:apalancado", "label": "Apalancado", "regla": 46},
+    {"nombre": "category:inverso", "label": "Inverso", "regla": 47},
+    {"nombre": "category:renta-fija", "label": "Renta fija", "regla": 9},
+    {"nombre": "category:reit", "label": "REIT", "regla": 9},
+    {"nombre": "category:exposicion-indirecta", "label": "Exposición indirecta", "regla": 9},
+    {"nombre": "category:equal-weight", "label": "Equal weight", "regla": 9}
+  ],
+  "fuentes": [
+    {"nombre": "source:emisor", "label": "Emisor", "prioridad": 1, "regla": 73},
+    {"nombre": "source:documento-oficial", "label": "Documento oficial (KID/folleto)", "prioridad": 2, "regla": 73},
+    {"nombre": "source:proveedor-indice", "label": "Proveedor del índice", "prioridad": 3, "regla": 73},
+    {"nombre": "source:regulador", "label": "Regulador (CNMV/SEC)", "prioridad": 4, "regla": 73},
+    {"nombre": "source:organismo-estadistico", "label": "Organismo estadístico", "prioridad": 5, "regla": 73},
+    {"nombre": "source:fuente-financiera", "label": "Fuente financiera reconocida", "prioridad": 6, "regla": 73},
+    {"nombre": "source:secundaria", "label": "Fuente secundaria", "prioridad": 7, "regla": 73}
+  ],
+  "metodologia": [
+    {
+      "nombre": "method:metodologia-156-reglas",
+      "label": "Metodología de las 156 reglas",
+      "descripcion": "Fuente maestra: ANALIZADOR DE FONDOS Y ETFS.docx. Destilada en src/analizador/agents/prompts/ y ejecutada por el motor determinista (src/analizador/scoring/).",
+      "documento": "ANALIZADOR DE FONDOS Y ETFS.docx"
+    }
+  ],
+  "adrs": [
+    {
+      "nombre": "adr:001-knowledge-graph",
+      "label": "ADR-001: Adoptar knowledge graph (patrón fukura)",
+      "estado": "aceptado",
+      "decision": "Grafo JSONL formato server-memory (@modelcontextprotocol/server-memory) servido como MCP knowledge-graph, con curated/*.json como capa editable y memory.json generado.",
+      "alternativas": "Sin grafo (análisis aislados); base de datos relacional (peso innecesario para conocimiento narrativo).",
+      "motivo": "Reglas 105/137: el seguimiento necesita memoria de rankings anteriores y productos descubiertos. El grafo fukura resuelve exactamente persistencia + consulta semántica con coste cero de infraestructura.",
+      "consecuencias": "Disciplina: editar curated, nunca el grafo; regenerar con pipeline.py."
+    },
+    {
+      "nombre": "adr:002-boveda-obsidian",
+      "label": "ADR-002: Bóveda Obsidian como entregable navegable",
+      "estado": "aceptado",
+      "decision": "Proyección read-only del grafo en boveda/ (una nota por entidad, frontmatter graph_id como join key, generated: true).",
+      "alternativas": "Dashboard web (coste de desarrollo); solo PDFs (no navegable).",
+      "motivo": "Aquí el lector final es el inversor: la bóveda ES el producto de lectura. Patrón fukura de proyección regenerada evita divergencias.",
+      "consecuencias": "Nunca editar a mano notas generated: true."
+    },
+    {
+      "nombre": "adr:003-metabolismo-ttl",
+      "label": "ADR-003: Metabolismo de datos (TTL/decay)",
+      "estado": "aceptado",
+      "decision": "TTL por tipo de dato (precio 1d, AUM 7d, TER 30d…) con degradación de etiqueta al caducar.",
+      "alternativas": "Datos inmortales.",
+      "motivo": "Regla 72: 'nunca presentar datos antiguos como actuales'. El metabolism fukura implementa la caducidad de forma mecánica, no discutible."
+    },
+    {
+      "nombre": "adr:004-rechazo-agent-hud",
+      "label": "ADR-004: RECHAZAR agent-hud / orquestación de equipo",
+      "estado": "rechazado",
+      "decision": "No adoptar el Agent Control Center de fukura.",
+      "motivo": "Fukura lo necesita para coordinar trabajo humano multi-repo (decisiones, pasos, HUD HTTP). El analizador es un producto de una sola persona; añade complejidad sin beneficio.",
+      "revision": "Revisar si el sistema pasa a operación multiusuario."
+    },
+    {
+      "nombre": "adr:005-rechazo-sync-externo-agentes",
+      "label": "ADR-005: RECHAZAR kg_sync externo por agentes",
+      "estado": "rechazado",
+      "decision": "No replicar la sync Jira/Confluence por scripts de agente con TTL.",
+      "alternativa_adoptada": "Capa de datos en el motor (sources/registry.py + adaptador Yahoo) con caché y TTL del metabolism-policy: la frescura la garantiza código en runtime, no re-sincronizaciones de agente.",
+      "motivo": "Las 'fuentes externas' del analizador son APIs de mercado consumidas en cada análisis, no documentos que ingerir."
+    },
+    {
+      "nombre": "adr:006-scoring-determinista",
+      "label": "ADR-006: El score lo calcula código, no el LLM",
+      "estado": "aceptado",
+      "decision": "Los agentes aportan factores 0-100 con métricas de origen; pesos, doble conteo, penalizaciones, confianza y TOP 5 los aplica el motor determinista.",
+      "motivo": "Regla 144 (control final auditable) y regla 137 (API/automatización): la reproducibilidad exige que el mismo input dé el mismo score. Un LLM no garantiza eso; el sí lo hace."
+    },
+    {
+      "nombre": "adr:007-suite-agentes-analisis",
+      "label": "ADR-007: Skills de análisis sobre el grafo (patrón fukura adaptado)",
+      "estado": "aceptado",
+      "decision": "El ciclo ask→define→verify→implement→sync de fukura se adapta a las fases del análisis: consultar grafo → interpretar/descubrir → analizar+red team → publicar en bóveda → regenerar grafo. Subagentes en .zcode/agents/.",
+      "motivo": "Regla 134 (modo actualización) equivale a sync-kg; regla 105 (seguimiento) equivale a la comparación de versiones del grafo. El patrón encaja 1:1."
+    }
+  ],
+  "reglas_maestras": {
+    "$comment": "Referencias a las reglas del documento que gobiernan el grafo.",
+    "seguimiento": 105,
+    "api_versiones": 137,
+    "datos_actuales": 72,
+    "jerarquia_fuentes": 73,
+    "validacion_cruzada": 74,
+    "no_invencion": 101
+  }
+}

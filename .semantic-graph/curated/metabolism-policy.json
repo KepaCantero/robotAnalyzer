@@ -1,0 +1,25 @@
+{
+  "$comment": "Metabolismo de datos — patrón fukura adaptado a la regla 72 (datos actuales) y regla 151 (actualización mínima). TTL en días desde la fecha del dato; caducado => bajar etiqueta de calidad y exigir re-consulta. Editar aquí.",
+  "ttl_dias": {
+    "precio": 1,
+    "aum": 7,
+    "ter": 30,
+    "holdings": 30,
+    "valoracion": 7,
+    "rentabilidad": 1,
+    "volatilidad": 7,
+    "macro": 30,
+    "fiscalidad": 90,
+    "analisis": 30
+  },
+  "decay": {
+    "$comment": "Al caducar un dato su etiqueta degrada un nivel por cada TTL cumplido (VERIFICADO→CALCULADO→ESTIMADO→INFERIDO). Regla 77: la incertidumbre reduce confianza.",
+    "niveles_por_ttl_cumplido": 1,
+    "etiqueta_suelo": "INFERIDO"
+  },
+  "consolidacion": {
+    "$comment": "Observaciones manual:* del grafo sobreviven re-syncs (convención fukura).",
+    "observaciones_manual_prefijo": "manual:",
+    "archivar_analisis_mas_antiguos_que_dias": 365
+  }
+}

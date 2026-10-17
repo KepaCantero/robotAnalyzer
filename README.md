@@ -20,6 +20,8 @@ seguimiento), construido con:
 
 > **¿Nuevo aquí?** Empieza por [`docs/05-eli5.md`](docs/05-eli5.md) — el
 > sistema explicado fácil en cinco ideas.
+> **English docs:** [`README.en.md`](README.en.md) — plain English (B2),
+> ELI5 guide, audited with Étincel (GREEN, 0 findings).
 
 ## Inicio rápido (0 dependencias)
 
